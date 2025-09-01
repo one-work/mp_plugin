@@ -2,9 +2,9 @@
   "miniprogramRoot": "miniprogram/",
   "pluginRoot": "plugin/",
   "compileType": "plugin",
-  "libVersion": "latest",
+  "libVersion": "3.9.2",
   "srcMiniprogramRoot": "miniprogram/",
-  "appid": "wx1ec82e7c529f99a0",
+  "appid": "wxcdcb0fa80cf4c2c9",
   "packOptions": {
     "ignore": [],
     "include": []

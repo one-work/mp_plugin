@@ -62,7 +62,7 @@ export default class {
       },
       fail: res => {
         console.debug('搜寻附近的蓝牙设备失败', res)
-        this.reportError(res)
+        this.reportError('startBluetoothDevicesDiscovery', res)
       }
     })
   }
@@ -109,7 +109,7 @@ export default class {
     this.allDevices = foundDevices
   }
 
-  #reportError(res) {
+  #reportError(api, res) {
     wx.request({
       url: 'https://one.work/bluetooth/devices/err',
       method: 'POST',
@@ -117,7 +117,7 @@ export default class {
         Accept: 'application/json'
       },
       data: {
-        api: 'openBluetoothAdapter',
+        api: api,
         message: res
       }
     })

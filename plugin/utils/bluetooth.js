@@ -117,11 +117,6 @@ export default class Bluetooth {
     this.allDevices = foundDevices
   }
 
-  // 获取特征值
-  #xxx(characteristics, success, size, index) {
-
-  }
-
   // 操作之前先监听，保证第一时间获取数据
   #onBLECharacteristicValueChange() {
     wx.onBLECharacteristicValueChange(characteristic => {

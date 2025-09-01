@@ -10,7 +10,7 @@ export default class {
   getState({ success, fail, complete } = {}) {
     wx.getBluetoothAdapterState({
       success: stateRes => {
-        console.debug('获取本机蓝牙适配器状态', stateRes.adapterState)
+        console.debug('获取本机蓝牙适配器状态', stateRes)
         const state = stateRes.adapterState || stateRes
 
         if (!state.discovering) {

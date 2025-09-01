@@ -1,9 +1,4 @@
-import {
-  createBLEConnection,
-  writeBLECharacteristicValue,
-  startBluetoothDevicesDiscovery,
-  getBluetoothAdapterState
-} from '../../utils/ble'
+import BluetoothPrinter from '../../utils/bluetooth_printer'
 
 Page({
   data: {

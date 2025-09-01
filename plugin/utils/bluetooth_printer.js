@@ -26,7 +26,7 @@ export default class extends Bluetooth {
     }
   }
 
-  #createBLEConnection(deviceId, success) {
+  createBLEConnection(deviceId, success) {
     wx.createBLEConnection({
       deviceId,
       success: res => {

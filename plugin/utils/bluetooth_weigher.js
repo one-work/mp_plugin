@@ -8,7 +8,7 @@ export default class extends Bluetooth {
   }
 
   // 操作之前先监听，保证第一时间获取数据
-  #onBLECharacteristicValueChange() {
+  onBLECharacteristicValueChange() {
     wx.onBLECharacteristicValueChange(characteristic => {
       const foundChs = this.chs
       const item = foundChs.find(e => e.uuid === characteristic.characteristicId)
@@ -28,6 +28,10 @@ export default class extends Bluetooth {
 
       this.chs = foundChs
     })
+  }
+
+  createBLEConnection(deviceId, success) {
+
   }
 
 }

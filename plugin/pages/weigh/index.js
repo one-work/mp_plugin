@@ -1,13 +1,10 @@
-import { createBLEConnection, startBluetoothDevicesDiscovery, getBluetoothAdapterState } from '../../utils/ble'
-import { weigher } from '../../behaviors/weigher'
+import  BluetoothWeighter from '../../utils/bluetooth_weigher'
 
 Page({
   data: {
     devices: [],
     chs: []
   },
-
-  behaviors: [weigher],
 
   onLoad(options) {
     console.debug('weigh onload', options)

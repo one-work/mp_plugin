@@ -62,7 +62,7 @@ export default class {
       },
       fail: res => {
         console.debug('搜寻附近的蓝牙设备失败', res)
-        this.reportError('startBluetoothDevicesDiscovery', res)
+        this.#reportError('startBluetoothDevicesDiscovery', res)
       }
     })
   }
@@ -103,7 +103,7 @@ export default class {
           console.debug('停止扫描蓝牙设备', res)
         }
       })
-      this.#createBLEConnection(item.deviceId, success)
+      this.createBLEConnection(item.deviceId, success)
     }
 
     this.allDevices = foundDevices

@@ -1,5 +1,7 @@
-import Bluetooth from './utils/bluetooth'
+import BluetoothPrinter from './utils/bluetooth_printer'
+import BluetoothWeigher from './utils/bluetooth_weigher'
 
 module.exports = {
-  Bluetooth: Bluetooth
+  BluetoothPrinter: BluetoothPrinter,
+  BluetoothWeigher: BluetoothWeigher
 }

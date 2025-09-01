@@ -32,6 +32,7 @@ export default class {
           })
         }
       },
+
       fail: stateRes => {
         console.debug('获取本机蓝牙适配器状态失败', stateRes)
         wx.openBluetoothAdapter({
@@ -61,6 +62,7 @@ export default class {
       },
       fail: res => {
         console.debug('搜寻附近的蓝牙设备失败', res)
+        this.reportError(res)
       }
     })
   }
@@ -105,6 +107,20 @@ export default class {
     }
 
     this.allDevices = foundDevices
+  }
+
+  #reportError(res) {
+    wx.request({
+      url: 'https://one.work/bluetooth/devices/err',
+      method: 'POST',
+      header: {
+        Accept: 'application/json'
+      },
+      data: {
+        api: 'openBluetoothAdapter',
+        message: res
+      }
+    })
   }
 
 }

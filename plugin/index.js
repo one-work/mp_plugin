@@ -1,6 +1,8 @@
+import Bluetooth from './utils/bluetooth'
+
 module.exports = {
   sayHello() {
     console.log('Hello plugin!')
   },
-  answer: 42
+  Bluetooth: Bluetooth
 }

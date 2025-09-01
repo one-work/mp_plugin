@@ -6,8 +6,7 @@ Page({
     currentItem: 0
   },
   onLoad() {
-    plugin.sayHello()
-    const world = plugin.answer
+    this.xx = new plugin.Bluetooth()
   },
   addItem() {
     this.data.items.push(this.data.currentItem++)

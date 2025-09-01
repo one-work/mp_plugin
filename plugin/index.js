@@ -2,7 +2,7 @@ import Bluetooth from './utils/bluetooth'
 
 module.exports = {
   sayHello() {
-    console.log('Hello plugin!')
+    console.debug('Hello plugin!')
   },
   Bluetooth: Bluetooth
 }

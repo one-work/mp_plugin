@@ -21,6 +21,10 @@ export default class PrintCPCL {
     ].join("\n")
   }
 
+  bytes() {
+    return Array.from(this.render()).map(r => r.charCodeAt(0))
+  }
+
   head() {
     return [
       `! 0 200 200 ${this.height} ${this.qty}`,

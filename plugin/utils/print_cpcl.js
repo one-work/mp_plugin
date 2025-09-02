@@ -1,4 +1,4 @@
-export default class {
+export default class PrintCPCL {
   static PADDING_TOP = 40
 
   constructor({ width = 72, height = 40 } = {}) {
@@ -6,7 +6,7 @@ export default class {
     this.height = height * 8
     this.qty = 1
     this.texts = []
-    this.currentY = this.PADDING_TOP
+    this.currentY = PrintCPCL.PADDING_TOP
     this.qrcodes = []
   }
 

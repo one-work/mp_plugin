@@ -29,11 +29,11 @@ export default class {
     ]
   }
 
-  text({ data, font = 8, size = 0, x = 0, y = 36, line_add = true } = {}) {
+  text(data, { font = 8, size = 0, x = 0, y = 36, line_add = true } = {}) {
     this.texts.push(`T ${font} ${size} ${x} ${this.currentY} ${data}`)
     if (line_add) {
       this.currentY = this.currentY + y
     }
   }
-  
+
 }

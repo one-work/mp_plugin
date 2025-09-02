@@ -5,6 +5,7 @@ Page({
     devices: [],
     chs: []
   },
+
   onLoad(options) {
     console.debug('print onload', options)
     const printer = wx.getStorageSync('printer') || {}

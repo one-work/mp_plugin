@@ -1,3 +1,4 @@
+const iconv = require('iconv-lite')
 export default class PrintCPCL {
   static PADDING_TOP = 40
 
@@ -11,7 +12,7 @@ export default class PrintCPCL {
   }
 
   render() {
-    return [
+    const content = [
       ...this.head(),
       ...this.texts,
       ...this.qrcodes,
@@ -19,6 +20,8 @@ export default class PrintCPCL {
       'PRINT',
       ''
     ].join("\n")
+
+    return iconv.encode(content, 'gb18030')
   }
 
   bytes() {

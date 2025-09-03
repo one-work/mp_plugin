@@ -53,13 +53,14 @@ export default class extends Bluetooth {
     console.debug(`开始发送数据，总大小: ${buffer.length}字节，分${totalChunks}块发送`)
 
     for (let offset = 0; offset < buffer.length; offset += chunkSize) {
-      const chunk = buffer.subarray(offset, offset + chunkSize);
+      const chunk = buffer.subarray(offset, offset + chunkSize)
+      const arrayBuffer = chunk.buffer.slice(chunk.byteOffset, chunk.byteOffset + chunk.length)
 
       wx.writeBLECharacteristicValue({
         deviceId: this.printer.deviceId,
         serviceId: this.printer.serviceId,
         characteristicId: this.printer.characteristicId,
-        value: chunk,
+        value: arrayBuffer,
         writeType: 'write',
         success(res) {
           console.debug('写入数据成功', res.errMsg)
@@ -71,7 +72,7 @@ export default class extends Bluetooth {
 
       chunksSent++
 
-      console.debug(`第${chunksSent}/${totalChunks}块发送成功，大小: ${chunk.length}字节`);
+      console.debug(`第${chunksSent}/${totalChunks}块发送成功，大小: ${chunk.length}字节`)
     }
   }
 

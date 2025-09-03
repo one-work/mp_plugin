@@ -25,7 +25,7 @@ export default class PrintCPCL {
   }
 
   bytes() {
-    return Array.from(this.render()).map(r => r.charCodeAt(0))
+    return Buffer.from(this.render())
   }
 
   head() {

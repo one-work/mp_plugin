@@ -26,6 +26,55 @@ export default class extends Bluetooth {
     }
   }
 
+  // 像蓝牙设备直接发送 buffer 数据
+  writeBufferx(buffer, maxChunk = 100) {
+    while (buffer.length > 0) {
+      buffer.subArray()
+      wx.writeBLECharacteristicValue({
+        deviceId: this.printer.deviceId,
+        serviceId: this.printer.serviceId,
+        characteristicId: this.printer.characteristicId,
+        value: buffer,
+        writeType: 'write',
+        success(res) {
+          console.debug('写入数据成功', res.errMsg)
+        },
+        fail(res) {
+          console.debug('写入数据失败', res)
+        }
+      })
+    }
+  }
+
+  // 完善后的写入Buffer函数
+  writeBuffer(buffer, chunkSize = 20) {
+    const totalChunks = Math.ceil(buffer.length / chunkSize)
+    let chunksSent = 0
+    console.debug(`开始发送数据，总大小: ${buffer.length}字节，分${totalChunks}块发送`)
+
+    for (let offset = 0; offset < buffer.length; offset += chunkSize) {
+      const chunk = buffer.subarray(offset, offset + chunkSize);
+
+      wx.writeBLECharacteristicValue({
+        deviceId: this.printer.deviceId,
+        serviceId: this.printer.serviceId,
+        characteristicId: this.printer.characteristicId,
+        value: chunk,
+        writeType: 'write',
+        success(res) {
+          console.debug('写入数据成功', res.errMsg)
+        },
+        fail(res) {
+          console.debug('写入数据失败', res)
+        }
+      })
+
+      chunksSent++
+
+      console.debug(`第${chunksSent}/${totalChunks}块发送成功，大小: ${chunk.length}字节`);
+    }
+  }
+
   createBLEConnection(deviceId, success) {
     wx.createBLEConnection({
       deviceId,

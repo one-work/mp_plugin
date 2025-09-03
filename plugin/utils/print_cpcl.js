@@ -24,10 +24,6 @@ export default class PrintCPCL {
     return iconv.encode(content, 'gb18030')
   }
 
-  bytes() {
-    return Buffer.from(this.render())
-  }
-
   head() {
     return [
       `! 0 200 200 ${this.height} ${this.qty}`,

@@ -1,5 +1,5 @@
 {
-  "name": "plugin",
+  "name": "bluetooth",
   "version": "1.0.0",
   "main": "index.js",
   "keywords": [],

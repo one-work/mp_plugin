@@ -3,7 +3,7 @@ export default class {
   constructor() {
     this.allDevices = []
     this.registeredDevices = []
-    this.printer = {}
+    this.connectedDevice = {}
   }
 
   // 获取本机蓝牙适配器状态
@@ -84,7 +84,7 @@ export default class {
     })
 
     const item = foundDevices.find(e => this.registeredDevices.includes(e.name))
-    if (item && this.printer.deviceId !== item.deviceId) {
+    if (item && this.connectedDevice.deviceId !== item.deviceId) {
       console.debug('可连接设备', item)
       foundDevices.sort((a, b) => {
         if (a.deviceId === item.deviceId) {

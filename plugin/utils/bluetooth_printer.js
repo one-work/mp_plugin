@@ -2,6 +2,10 @@ import Bluetooth from './bluetooth'
 
 export default class extends Bluetooth {
 
+  constructor() {
+    super()
+  }
+
   // 向蓝牙设备发送数据
   writeValue(data, maxChunk = 20) {
     while (data.length > 0) {
@@ -11,29 +15,9 @@ export default class extends Bluetooth {
       uint.set(subData)
 
       wx.writeBLECharacteristicValue({
-        deviceId: this.printer.deviceId,
-        serviceId: this.printer.serviceId,
-        characteristicId: this.printer.characteristicId,
-        value: buffer,
-        writeType: 'write',
-        success(res) {
-          console.debug('写入数据成功', res.errMsg)
-        },
-        fail(res) {
-          console.debug('写入数据失败', res)
-        }
-      })
-    }
-  }
-
-  // 像蓝牙设备直接发送 buffer 数据
-  writeBufferx(buffer, maxChunk = 100) {
-    while (buffer.length > 0) {
-      buffer.subArray()
-      wx.writeBLECharacteristicValue({
-        deviceId: this.printer.deviceId,
-        serviceId: this.printer.serviceId,
-        characteristicId: this.printer.characteristicId,
+        deviceId: this.connectedDevice.deviceId,
+        serviceId: this.connectedDevice.serviceId,
+        characteristicId: this.connectedDevice.characteristicId,
         value: buffer,
         writeType: 'write',
         success(res) {
@@ -57,9 +41,9 @@ export default class extends Bluetooth {
       const arrayBuffer = chunk.buffer.slice(chunk.byteOffset, chunk.byteOffset + chunk.length)
 
       wx.writeBLECharacteristicValue({
-        deviceId: this.printer.deviceId,
-        serviceId: this.printer.serviceId,
-        characteristicId: this.printer.characteristicId,
+        deviceId: this.connectedDevice.deviceId,
+        serviceId: this.connectedDevice.serviceId,
+        characteristicId: this.connectedDevice.characteristicId,
         value: arrayBuffer,
         writeType: 'write',
         success(res) {
@@ -98,7 +82,7 @@ export default class extends Bluetooth {
                     for (const characteristic of res.characteristics) {
                       if (characteristic.properties.write && characteristic.properties.writeNoResponse) {
                         console.debug('可写入', deviceId, service.uuid, characteristic.uuid)
-                        this.printer = {
+                        this.connectedDevice = {
                           deviceId: deviceId,
                           serviceId: service.uuid,
                           characteristicId: characteristic.uuid

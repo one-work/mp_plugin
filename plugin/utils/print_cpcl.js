@@ -39,4 +39,13 @@ export default class PrintCPCL {
     }
   }
 
+  text_bold(data, { size = 1, ...options } = {}) {
+    this.texts.push('SETBOLD 2')
+    this.texts.push(`SETMAG ${size} ${size}`)
+
+    this.text(data, { size: size, y: 36 * size, ...options })
+    this.texts.push('SETMAG 0 0')
+    this.texts.push('SETBOLD 0')
+  }
+
 }

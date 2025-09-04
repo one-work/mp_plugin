@@ -47,6 +47,10 @@ export default class {
           },
           fail: res => {
             fail?.(res)
+            wx.showModal({
+              title: '初始化蓝牙模块失败',
+              content: '清除缓存后再试'
+            })
             console.debug('初始化蓝牙模块失败', res)
           }
         })

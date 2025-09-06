@@ -1,6 +1,7 @@
 export default class {
 
-  constructor() {
+  constructor(api) {
+    this.api = api
     this.allDevices = []
     this.registeredDevices = []
     this.connectedDevice = {}
@@ -8,7 +9,7 @@ export default class {
 
   // 获取本机蓝牙适配器状态
   getState({ success, fail, complete } = {}) {
-    wx.getBluetoothAdapterState({
+    this.api.getBluetoothAdapterState({
       success: stateRes => {
         console.debug('获取本机蓝牙适配器状态', stateRes)
         const state = stateRes.adapterState || stateRes
@@ -18,14 +19,14 @@ export default class {
         }
 
         if (state.available) {
-          wx.getBluetoothDevices({
+          this.api.getBluetoothDevices({
             success: res => {
               console.debug('获取在蓝牙模块生效期间所有搜索到的蓝牙设备', res)
               this.#filterBluetoothDevices(res.devices, success)
               complete?.(this.allDevices)
             }
           })
-          wx.onBluetoothDeviceFound(res => {
+          this.api.onBluetoothDeviceFound(res => {
             console.debug('发现新设备', res)
             this.#filterBluetoothDevices(res.devices, success)
             complete?.(this.allDevices)
@@ -35,11 +36,11 @@ export default class {
 
       fail: stateRes => {
         console.debug('获取本机蓝牙适配器状态失败', stateRes)
-        wx.openBluetoothAdapter({
+        this.api.openBluetoothAdapter({
           success: res => {
             console.debug('初始化蓝牙模块', res)
             this.startBluetoothDevicesDiscovery()
-            wx.onBluetoothDeviceFound(res => {
+            this.api.onBluetoothDeviceFound(res => {
               console.debug('发现新设备', JSON.stringify(res.devices))
               this.#filterBluetoothDevices(res.devices, success)
               complete?.(this.allDevices)
@@ -47,7 +48,7 @@ export default class {
           },
           fail: res => {
             fail?.(res)
-            wx.showModal({
+            this.api.showModal({
               title: '初始化蓝牙模块失败',
               content: '清除缓存后再试'
             })
@@ -59,7 +60,7 @@ export default class {
   }
 
   startBluetoothDevicesDiscovery() {
-    wx.startBluetoothDevicesDiscovery({
+    this.api.startBluetoothDevicesDiscovery({
       allowDuplicatesKey: true,
       success: res => {
         console.debug('开始搜寻附近的蓝牙设备', res)
@@ -99,10 +100,10 @@ export default class {
 
         return 0
       })
-      wx.offBluetoothDeviceFound(res => {
+      this.api.offBluetoothDeviceFound(res => {
         console.debug('停止监听', res)
       })
-      wx.stopBluetoothDevicesDiscovery({
+      this.api.stopBluetoothDevicesDiscovery({
         complete(res) {
           console.debug('停止扫描蓝牙设备', res)
         }
@@ -114,7 +115,7 @@ export default class {
   }
 
   #reportError(api, res) {
-    wx.request({
+    this.api.request({
       url: 'https://one.work/bluetooth/devices/err',
       method: 'POST',
       header: {

@@ -14,7 +14,7 @@ export default class extends Bluetooth {
       let uint = new Uint8Array(buffer)
       uint.set(subData)
 
-      wx.writeBLECharacteristicValue({
+      this.api.writeBLECharacteristicValue({
         deviceId: this.connectedDevice.deviceId,
         serviceId: this.connectedDevice.serviceId,
         characteristicId: this.connectedDevice.characteristicId,
@@ -40,7 +40,7 @@ export default class extends Bluetooth {
       const chunk = buffer.subarray(offset, offset + chunkSize)
       const arrayBuffer = chunk.buffer.slice(chunk.byteOffset, chunk.byteOffset + chunk.length)
 
-      wx.writeBLECharacteristicValue({
+      this.api.writeBLECharacteristicValue({
         deviceId: this.connectedDevice.deviceId,
         serviceId: this.connectedDevice.serviceId,
         characteristicId: this.connectedDevice.characteristicId,
@@ -61,13 +61,13 @@ export default class extends Bluetooth {
   }
 
   createBLEConnection(deviceId, success) {
-    wx.createBLEConnection({
+    this.api.createBLEConnection({
       deviceId,
       success: res => {
         console.debug('连接蓝牙设备', deviceId, res)
 
         // 获取蓝牙设备的所有服务
-        wx.getBLEDeviceServices({
+        this.api.getBLEDeviceServices({
           deviceId,
           success: res => {
             const servicesLength = res.services.length
@@ -75,7 +75,7 @@ export default class extends Bluetooth {
               if (service.isPrimary) {
                 console.debug('设备 ID：', deviceId, '主服务：', service.uuid)
                 // 获取蓝牙设备服务中所有特征
-                wx.getBLEDeviceCharacteristics({
+                this.api.getBLEDeviceCharacteristics({
                   deviceId: deviceId,
                   serviceId: service.uuid,
                   success: res => {

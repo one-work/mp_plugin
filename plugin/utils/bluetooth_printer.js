@@ -2,8 +2,8 @@ import Bluetooth from './bluetooth'
 
 export default class extends Bluetooth {
 
-  constructor() {
-    super()
+  constructor(api) {
+    super(api)
   }
 
   // 向蓝牙设备发送数据

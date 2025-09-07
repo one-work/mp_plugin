@@ -8,12 +8,11 @@ Page({
 
   onLoad(options) {
     console.debug('print onload', options)
-    const printer = wx.getStorageSync('printer') || {}
+    const printer = new BluetoothPrinter(wx)
     this.setData({
       url: decodeURIComponent(options.url),
       printer: printer // 只有当连接成功的才赋值, 当断开时会取消赋值
     })
-    getBluetoothAdapterState(this)
   },
 
   createBLEConnection(e) {

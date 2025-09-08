@@ -7,7 +7,8 @@ Page({
   },
 
   onLoad() {
-    this.xx = new plugin.BluetoothPrinter()
+    this.xx = new plugin.BluetoothPrinter(wx)
+    this.cpcl = new plugin.PrintCPCL()
   }
 
 })

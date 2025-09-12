@@ -2,4 +2,4 @@
 
 <navigator url="plugin://bluetooth/weigh">蓝牙秤</navigator>
 
-<button type="default" bindtap="printPos">POS/ESC 打印测试</button>
+<navigator url="plugin://bluetooth/print_demo">打印测试</navigator>

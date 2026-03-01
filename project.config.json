@@ -38,5 +38,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "simulatorPluginLibVersion": {}
+  "simulatorPluginLibVersion": {},
+  "pluginAppid": "wxcdcb0fa80cf4c2c9"
 }

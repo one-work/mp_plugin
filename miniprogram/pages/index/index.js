@@ -7,8 +7,7 @@ Page({
   },
 
   onLoad() {
-    this.plugin = plugin
-    this.printer = new plugin.BluetoothPrinter(wx)
+    this.printer = new plugin.BluetoothPrinter(wx, this)
     this.printer.registeredDevices = ['DP-HT303-5402']
   }
 

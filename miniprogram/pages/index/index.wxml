@@ -1,4 +1,6 @@
-<navigator url="plugin://bluetooth/print">蓝牙打印机</navigator>
+<navigator
+ url="plugin://bluetooth/print?name=XC-,Xc-,PRINTER,Printer"
+>蓝牙打印机 WIFI 配置</navigator>
 
 <navigator url="plugin://bluetooth/weigh">蓝牙秤</navigator>
 

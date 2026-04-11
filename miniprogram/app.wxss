@@ -5,9 +5,12 @@ page {
 .button {
   text-align: center;
   background: #eeeeee;
-  margin: 0.75rem;
-  padding: 0.75rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 5px;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .pt-1 {

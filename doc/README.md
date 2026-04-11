@@ -9,5 +9,5 @@
 * 引用
 ```js
 const x = requirePlugin('bluetooth')
-const printer = new x.BluetoothPrinter(wx)
+const printer = new x.BluetoothPrinter(wx, this)
 ```

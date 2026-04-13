@@ -6,8 +6,14 @@ Page({
   },
 
   onLoad() {
+    const printers = this.selectComponent('#printers')
+
     this.printer = new plugin.BluetoothPrinter(wx, this)
     this.printer.registeredDevices = [this.data.name]
+    this.setData({
+      deviceId: printers.connectedDeviceId,
+      name: printers.connectedDeviceName
+    })
   },
 
   selected(e) {

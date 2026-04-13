@@ -1,10 +1,6 @@
 const plugin = requirePlugin('bluetooth')
 
 Page({
-  data: {  
-    name: 'DP-HT303-5402'
-  },
-
   onLoad() {
     const printers = this.selectComponent('#printers')
 

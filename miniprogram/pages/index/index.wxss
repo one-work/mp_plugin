@@ -2,7 +2,7 @@
 navigator {
   text-align: center;
   background: #eeeeee;
-  margin: 1em;
+  margin: 0.75rem;
   padding: 1em;
   border-radius: 5px;
 }

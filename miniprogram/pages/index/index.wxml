@@ -1,4 +1,9 @@
-<printers id="printers" printerName="XC-,Xc-,PRINTER,Printer"></printers>
+<printers
+  id="printers" 
+  printerName="XC-,Xc-,PRINTER,Printer" 
+  bind:selected="selected"
+  bind:unselected="unselected"
+></printers>
 
 <view>
   <navigator url="plugin://bluetooth/wifi?name={{name}}">WIFI 配置</navigator>

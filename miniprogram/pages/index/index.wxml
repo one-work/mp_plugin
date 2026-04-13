@@ -1,11 +1,9 @@
 <printers printerName="{{ printerName }}"></printers>
 
-<navigator url="plugin://bluetooth/wifi?name=XC-,Xc-,PRINTER,Printer">WIFI 配置</navigator>
-
-<navigator url="plugin://bluetooth/wifi?name=XC-,Xc-,PRINTER,Printer">蓝牙名称设置</navigator>
-
-<navigator url="plugin://bluetooth/weigh">蓝牙秤</navigator>
-
-<navigator url="plugin://bluetooth/print_pos?name=XC-,Xc-,PRINTER,Printer">打印小票(POS)</navigator>
-
-<navigator url="plugin://bluetooth/print_cpcl?name=XC-,Xc-,PRINTER,Printer">打印标签(CPCL)</navigator>
+<view>
+  <navigator url="plugin://bluetooth/wifi?name={{name}}">WIFI 配置</navigator>
+  <navigator url="plugin://bluetooth/wifi?name={{name}}">蓝牙名称设置</navigator>
+  <navigator url="plugin://bluetooth/weigh?name={{name}}">蓝牙秤</navigator>
+  <navigator url="plugin://bluetooth/print_pos?name={{name}}">打印小票(POS)</navigator>
+  <navigator url="plugin://bluetooth/print_cpcl?name={{name}}">打印标签(CPCL)</navigator>
+</view>

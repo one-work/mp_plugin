@@ -1,14 +1,13 @@
 const plugin = requirePlugin('bluetooth')
 
 Page({
-  data: {
-    items: [],
-    currentItem: 0
+  data: {  
+    name: 'DP-HT303-5402'
   },
 
   onLoad() {
     this.printer = new plugin.BluetoothPrinter(wx, this)
-    this.printer.registeredDevices = ['DP-HT303-5402']
+    this.printer.registeredDevices = [this.data.name]
   }
 
 })

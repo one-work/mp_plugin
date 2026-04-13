@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "WIFI 配置",
+  "usingComponents": {
+    "printers": "plugin://bluetooth/printers"
+  }
+}

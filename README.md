@@ -1,4 +1,7 @@
-# 创印蓝牙打印插件
+# 蓝牙打印插件
+
+## 微信小程序插件
+* [插件地址](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wxcdcb0fa80cf4c2c9)
 
 ## 使用方法
 

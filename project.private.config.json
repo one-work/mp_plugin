@@ -2,7 +2,33 @@
   "description": "详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "projectname": "bluetooth",
   "libVersion": "3.9.2",
-  "condition": {},
+  "condition": {
+    "plugin": {
+      "list": [
+        {
+          "name": "打印小票",
+          "pathName": "__plugin__/wxcdcb0fa80cf4c2c9/pages/print_pos/index",
+          "query": "name=PRINTER-461D",
+          "scene": null,
+          "launchMode": "default"
+        },
+        {
+          "name": "WIFI",
+          "pathName": "__plugin__/wxcdcb0fa80cf4c2c9/pages/wifi/index",
+          "query": "name=PRINTER-461D",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "蓝牙名称",
+          "pathName": "__plugin__/wxcdcb0fa80cf4c2c9/pages/name/index",
+          "query": "name=PRINTER-461D",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
   "setting": {
     "urlCheck": true,
     "coverView": false,

@@ -6,6 +6,8 @@
 
 ## 如何使用
 
+* [代码示例](https://github.com/one-work/mp_plugin/tree/main/miniprogram)
+
 * 引用
 ```js
 const x = requirePlugin('bluetooth')

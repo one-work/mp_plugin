@@ -1,14 +1,14 @@
 <printers
-  id="printers" 
-  printerName="XC-,Xc-,PRINTER,Printer,Zhou"
+  id="printers"
+  deviceName="XC-,Xc-,PRINTER,Printer,Zhou"
   bind:selected="selected"
   bind:unselected="unselected"
 ></printers>
 
 <view>
-  <navigator url="plugin://bluetooth/wifi?name={{name}}">WIFI 配置</navigator>
-  <navigator url="plugin://bluetooth/name?name={{name}}">蓝牙名称设置</navigator>
-  <navigator url="plugin://bluetooth/weigh?name={{name}}">蓝牙秤</navigator>
-  <navigator url="plugin://bluetooth/print_pos?name={{name}}">打印小票(POS)</navigator>
-  <navigator url="plugin://bluetooth/print_cpcl?name={{name}}">打印标签(CPCL)</navigator>
+  <navigator url="plugin://bluetooth/wifi?connectedName={{connectedName}}">WIFI 配置</navigator>
+  <navigator url="plugin://bluetooth/name?connectedName={{connectedName}}">蓝牙名称设置</navigator>
+  <navigator url="plugin://bluetooth/weigh?connectedName={{connectedName}}">蓝牙秤</navigator>
+  <navigator url="plugin://bluetooth/print_pos?connectedName={{connectedName}}">打印小票(POS)</navigator>
+  <navigator url="plugin://bluetooth/print_cpcl?connectedName={{connectedName}}">打印标签(CPCL)</navigator>
 </view>

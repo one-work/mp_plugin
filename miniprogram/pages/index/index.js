@@ -3,19 +3,19 @@ const plugin = requirePlugin('bluetooth')
 Page({
   onLoad() {
     const printers = this.selectComponent('#printers')
+    this.setData({
+      deviceId: printers.connectedId,
+      deviceName: printers.connectedName
+    })
 
     this.printer = new plugin.BluetoothPrinter(wx, this)
-    this.printer.registeredDevices = [this.data.name]
-    this.setData({
-      deviceId: printers.connectedDeviceId,
-      name: printers.connectedDeviceName
-    })
+    this.printer.registeredDevices = [this.data.deviceName]
   },
 
   selected(e) {
     console.log(e)
     this.setData({
-      name: e.detail.name,
+      deviceName: e.detail.deviceName,
       deviceId: e.detail.deviceId
     })
   },

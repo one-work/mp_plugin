@@ -6,11 +6,18 @@
     "plugin": {
       "list": [
         {
-          "name": "打印小票",
-          "pathName": "__plugin__/wxcdcb0fa80cf4c2c9/pages/print_pos/index",
+          "name": "CPCL打印",
+          "pathName": "__plugin__/wxcdcb0fa80cf4c2c9/pages/print_cpcl/index",
           "query": "name=PRINTER-461D",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "打印小票",
+          "pathName": "__plugin__/wxcdcb0fa80cf4c2c9/pages/print_pos/index",
+          "query": "name=PRINTER-461D",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "WIFI",

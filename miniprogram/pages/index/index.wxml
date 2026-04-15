@@ -1,6 +1,6 @@
 <printers
   id="printers" 
-  printerName="XC-,Xc-,PRINTER,Printer" 
+  printerName="XC-,Xc-,PRINTER,Printer,Zhou"
   bind:selected="selected"
   bind:unselected="unselected"
 ></printers>

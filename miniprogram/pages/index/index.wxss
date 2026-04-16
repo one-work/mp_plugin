@@ -1,8 +1,11 @@
-/* pages/index/index.wxss */
 navigator {
   text-align: center;
   background: #eeeeee;
   margin: 0.75rem;
   padding: 1em;
   border-radius: 5px;
+}
+
+#printers {
+  height: 22em;
 }
